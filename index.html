@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Быстрый подбор шин</title>
+
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/vendor/jquery-1.9.1.min.js"></script>
+        <script src="js/vendor/jquery-ui.js"></script>
+    </head>
+    <body>
+        <div id="fast-tires-choosing">
+          <header>
+            <img src="img/logo.png" alt="" class="logo">
+            <span class="sub-title">интернет-магазин резины</span>
+            <div>
+            </div>
+          </header>
+          <section>
+              <p>
+                <label for="num1">Ширина</label>
+                <input type="text" id="num1" style="border: 0; color: #f6931f; font-weight: bold;" />
+              </p>
+               
+              <div id="wideness"></div>
+
+              <p>
+                <label for="num2">Профиль</label>
+                <input type="text" id="num2" style="border: 0; color: #f6931f; font-weight: bold;" />
+              </p>
+               
+              <div id="profile"></div>
+
+              <p>
+                <label for="num3">Диаметр</label>
+                <input type="text" id="num3" style="border: 0; color: #f6931f; font-weight: bold;" />
+              </p>
+               
+              <div id="diameter"></div>
+          </section>
+          <a href="" class="choose-tires">
+            <span>Подобрать резину</span>
+            <ins class="ico"></ins>
+          </a>
+        </div>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+         <script>
+          $(function() {
+            $("#wideness").slider({
+              range: "min",
+              value:185,
+              min: 135,
+              max: 325,
+              step: 10,
+              slide: function( event, ui ) {
+                $( "#num1" ).val( ui.value );
+              }
+            });
+            $( "#num1" ).val($( "#wideness" ).slider( "value" ) );
+          });
+
+
+          $(function() {
+            $("#profile").slider({
+              range: "min",
+              value:60,
+              min: 25,
+              max: 85,
+              step: 5,
+              slide: function( event, ui ) {
+                $( "#num2" ).val( ui.value );
+              }
+            });
+            $( "#num2" ).val($( "#profile" ).slider( "value" ) );
+          });
+
+          $(function() {
+            $("#diameter").slider({
+              range: "min",
+              value:16,
+              min: 12,
+              max: 21,
+              step: 1,
+              slide: function( event, ui ) {
+                $( "#num3" ).val( "R" + ui.value );
+              }
+            });
+            $( "#num3" ).val( "R" + $( "#diameter" ).slider( "value" ) );
+          });
+
+
+          
+        </script>
+    </body>
+</html>
